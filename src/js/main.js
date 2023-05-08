@@ -1,17 +1,16 @@
-import React, { useState, useEffect } from 'react';
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  useHistory,
-} from 'react-router-dom';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Login from '../js/Login.js';
+import Application from '../js/Application.js';
 
-
-function main() {
+function Main() {
     return (
-    <h1>Helloooooo</h1>
-    );
-    }
-    
-    export default main;
+        <Routes>
+          <Route path="/" element={<Login />} />
+          <Route path="/application" element={<Application />} />
+        </Routes>
+      
+  );
+}
+
+export default Main;
