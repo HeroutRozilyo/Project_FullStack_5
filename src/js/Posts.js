@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 function Posts() {
     const [posts, setPosts] = useState([]);
     
@@ -22,3 +23,4 @@ function Posts() {
     </div>
     );
     }
+    export default Posts; 

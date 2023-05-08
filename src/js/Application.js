@@ -3,9 +3,15 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
+  Routes,
   Link,
   useHistory,
 } from 'react-router-dom';
+import Info from '../js/Info';
+import Album from '../js/Album';
+import Login from '../js/Login';
+import Posts from '../js/Posts';
+import Todos from '../js/Todos';
 
  function Application() {
     const user = JSON.parse(localStorage.getItem('user'));
@@ -23,7 +29,13 @@ import {
           </ul>
         </nav>
         <div>
-          
+        <Routes>
+            <Route path="/application/info" element={<Info />}/>
+            <Route path="/application/todos" element={<Todos />}/>
+            <Route path="/application/posts" element={<Posts />}/>
+          <Route path="/application/albums" element={<Album />}/>
+
+        </Routes>
       </div>
     </div>
             );
