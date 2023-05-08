@@ -1,3 +1,5 @@
+import { useState, useEffect } from 'react';
+
 function Info() {
     const user = JSON.parse(localStorage.getItem('user'));
     
@@ -12,3 +14,4 @@ function Info() {
     </div>
     );
     }
+    export default Info;
