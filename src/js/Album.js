@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import "../css/album.css";
 
 function Albums() {
   const [albums, setAlbums] = useState([]);
@@ -9,6 +10,7 @@ function Albums() {
   const [showAlbums, setShowAlbums] = useState(false);
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user.id;
+  
 
   useEffect(() => {
     fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
@@ -18,6 +20,7 @@ function Albums() {
   }, [userId]);
 
   const handleAlbumClick = (albumId) => {
+    
     if (selectedAlbum === albumId && showAlbums) {
       setShowAlbums(false);
       setSelectedAlbum(null);
@@ -35,38 +38,47 @@ function Albums() {
   };
 
   const handleLoadMore = () => {
-    setStart(start + 10);
+    setStart(start);
     setEnd(end + 10);
   };
 
   return (
-    <div>
-      <h2>Albums</h2>
-      <ul>
+    <div className="album-container">
+      <h2 className="album-title">Albums</h2>
+      <ul className="album-list">
         {albums.map((album) => (
-          <li
-            key={album.id}
-            className={selectedAlbum === album.id ? "selected" : ""}
-          >
-            <button onClick={() => handleAlbumClick(album.id)}>
-              {selectedAlbum === album.id && showAlbums ? "Close" : "View"}
-            </button>
-            {selectedAlbum === album.id && showAlbums ? "" : `${album.title}`}
-
+          <li key={album.id} className="album-item">
+            <div
+              className="album-card"
+              onClick={() => handleAlbumClick(album.id)}
+              aria-label={`View album ${album.title}`}
+            >
+              <div className="album-image">
+                <span className="album-title-text">{album.title}</span>
+              </div>
+            </div>
             {selectedAlbum === album.id && (
-              <div className="photo-list">
-                <p>
-                  <strong>{album.title}</strong>
-                </p>
-                {photos.slice(start, end).map((photo) => (
-                  <img
-                    key={photo.id}
-                    src={photo.thumbnailUrl}
-                    alt={photo.title}
-                  />
-                ))}
+              <div className="photo-list-container">
+              
+                <div className="photo-list">
+                  {photos.slice(start, end).map((photo) => (
+                    <img
+                      key={photo.id}
+                      src={photo.thumbnailUrl}
+                      alt={photo.title}
+                      className="photo-item"
+                    />
+                  ))}
+                </div>
                 {end < photos.length && (
-                  <button onClick={handleLoadMore}>Load More</button>
+                  <div className="load-more">
+                    <button
+                      onClick={handleLoadMore}
+                      className="load-more-button"
+                    >
+                      Load More
+                    </button>
+                  </div>
                 )}
               </div>
             )}

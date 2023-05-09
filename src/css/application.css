@@ -1,28 +1,33 @@
-.grid_all{
-    height: 100%;
-    width: 100%;
-    display: grid;
-    grid-template-areas:
-    "h h h h h"
-    "i m m m m"
-    "i c c c c";
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 47px 460px;
-    
-}
-
-.header{
-    grid-area: h;
-    display: grid;
-}
-
-.menuwBar{
-    grid-area: m;
-    display: grid;
-}
-
-.content{
-    grid-area: c;
-    display: grid;
+/* CSS for the navigation links */
+.menuBar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #3b5998;
+  }
   
-}
+  .menuBar li {
+    margin-right: 20px;
+  }
+  
+  .menuBar li:last-child {
+    margin-right: 0;
+  }
+  
+  .menuBar a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px 20px;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .menuBar a:hover {
+    background-color: white;
+    color: #3b5998;
+  }
+  

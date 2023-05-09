@@ -1,79 +1,57 @@
-body {
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+/* Center the Todos component */
+.todos-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   
-  .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    border-radius: 5px;
-  }
-  
-  h2 {
-    margin-top: 0;
+  /* Style the Todos title */
+  .todos-title {
     font-size: 2rem;
-    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Style the Sort By label */
+  .todos-label {
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  /* Style the Sort By select */
+  .todos-select {
+    font-size: 1rem;
+    padding: 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    background-color: #f2f2f2;
     color: #333;
   }
   
-  .select-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
-  }
-  
-  label {
-    font-size: 1.2rem;
-    margin-right: 10px;
-    color: #333;
-  }
-  
-  .select {
-    font-size: 1.2rem;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    background-color: #fff;
-    color: #333;
-  }
-  
-  ul {
+  /* Style the Todos list */
+  .todos-list {
     list-style: none;
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
   
-  li {
+  /* Style the Todos item */
+  .todos-item {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    margin-bottom: 10px;
-    border-radius: 5px;
-    background-color: #fff;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    transition: all 0.2s ease-in-out;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    background-color: #f2f2f2;
+    border-radius: 0.25rem;
   }
   
-  li:hover {
-    transform: scale(1.02);
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  /* Style the Todos checkbox */
+  .todos-checkbox {
+    margin-right: 0.5rem;
   }
   
-  li input[type="checkbox"] {
-    margin-right: 10px;
-    transform: scale(1.5);
-  }
-  
-  li label {
-    font-size: 1.2rem;
+  /* Style the Todos text */
+  .todos-text {
     flex: 1;
-    color: #333;
-    text-decoration: " + (props.completed ? "line-through" : "none") + ";
-
+    font-size: 1.2rem;
   }
   

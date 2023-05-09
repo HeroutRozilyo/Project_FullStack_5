@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../css/todos.css'
+
 function Todos() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -14,7 +15,7 @@ function Todos() {
   
       try {
         const user = JSON.parse(localStorage.getItem('user'));
-const userId = user.id;
+        const userId = user.id;
         const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`);
         todosData = await response.json();
       } catch (error) {
@@ -30,12 +31,9 @@ const userId = user.id;
   
     fetchTodos();
   }, []);
-  
-  
 
   const handleSortOrderChange = event => {
     setSortOrder(event.target.value);
-    
   };
 
   const updateTodo = async (todo) => {
@@ -44,7 +42,6 @@ const userId = user.id;
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json; charset=UTF-8',
-
         },
         body: JSON.stringify({
           completed: !todo.completed
@@ -57,7 +54,6 @@ const userId = user.id;
     }
   };
   
-
   const sortedTodos = [...todos].sort((a, b) => {
     if (sortOrder === 'serial') {
       return a.id - b.id;
@@ -79,20 +75,20 @@ const userId = user.id;
   }
 
   return (
-    <div className='container'>
-      <h2>Todos</h2>
-      <label htmlFor="sort-order-select">Sort by:</label>
-      <select id="sort-order-select" value={sortOrder} onChange={handleSortOrderChange}>
+    <div className="todos-page">
+      <h2 className="todos-title">Todos</h2>
+      <label className="todos-label" htmlFor="sort-order-select">Sort by:</label>
+      <select className="todos-select" id="sort-order-select" value={sortOrder} onChange={handleSortOrderChange}>
         <option value="serial">Serial</option>
         <option value="execution">Execution</option>
         <option value="alphabetical">Alphabetical</option>
         <option value="random">Random</option>
       </select>
-      <ul>
+      <ul className="todos-list">
         {sortedTodos.map(todo => (
-          <li key={todo.id}>
-            <input type="checkbox" checked={todo.completed} onChange={() => updateTodo(todo)} />
-            {todo.title}
+          <li className="todos-item" key={todo.id}>
+            <input className="todos-checkbox" type="checkbox" checked={todo.completed} onChange={() => updateTodo(todo)} />
+            <span className="todos-text">{todo.title}</span>
           </li>
         ))}
       </ul>

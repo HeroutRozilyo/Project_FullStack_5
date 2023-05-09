@@ -45,43 +45,39 @@ function Posts() {
     <div>
       <h2>Posts</h2>
       <ul>
-        {posts.map((post) => (
-          <li
-            key={post.id}
-            className={`post-item ${
-              selectedPost === post.id && showPostDetails ? "selected" : ""
-            }`}
-            onDoubleClick={() => handleRowDoubleClick(post.id)}
-          >
-            <button onClick={() => handlePostClick(post.id)}>
-              {selectedPost === post.id && showComments ? "Close" : "View"}
-            </button>
-            {selectedPost === post.id && (showPostDetails || showComments)
-              ? ""
-              : `${post.title}`}
-
-            {selectedPost === post.id && showComments && (
-              <div>
-                <h3>Comments</h3>
-                <ul>
-                  {comments.map((comment) => (
-                    <li key={comment.id}>
-                      <strong>{comment.name}</strong>
-                      <p>{comment.body}</p>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            {selectedPost === post.id && showPostDetails && (
-              <div>
-                <h3>Post Details</h3>
-                <strong> {post.title}</strong>
-                <p>{post.body}</p>
-              </div>
-            )}
-          </li>
+      {posts.map((post) => (
+  <div
+    key={post.id}
+    className={`post-container ${
+      selectedPost === post.id && showPostDetails ? "selected" : ""
+    }`}
+    onDoubleClick={() => handleRowDoubleClick(post.id)}
+  >
+    <div className="post-header">
+      <h2 className="post-title">{post.title}</h2>
+      <button className="view-comments-button" onClick={() => handlePostClick(post.id)}>
+        {selectedPost === post.id && showComments ? "Hide Comments" : "View Comments"}
+      </button>
+    </div>
+    {selectedPost === post.id && showPostDetails && (
+      <div className="post-body">
+        <p>{post.body}</p>
+      </div>
+    )}
+    {selectedPost === post.id && showComments && (
+      <div className="post-comments">
+        <h3 className="comments-header">Comments</h3>
+        {comments.map((comment) => (
+          <div key={comment.id} className="comment-container">
+            <p className="comment-name">{comment.name}</p>
+            <p className="comment-body">{comment.body}</p>
+          </div>
         ))}
+      </div>
+    )}
+  </div>
+))}
+
       </ul>
     </div>
   );
