@@ -1,0 +1,28 @@
+.grid_all{
+    height: 100%;
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+    "h h h h h"
+    "i m m m m"
+    "i c c c c";
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 47px 460px;
+    
+}
+
+.header{
+    grid-area: h;
+    display: grid;
+}
+
+.menuwBar{
+    grid-area: m;
+    display: grid;
+}
+
+.content{
+    grid-area: c;
+    display: grid;
+  
+}
