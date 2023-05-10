@@ -1,16 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Toolbar from "../js/toolBar.js";
-import Info from "../js/Info";
-import Album from "../js/Album";
-import Login from "../js/Login";
-import Posts from "../js/Posts";
-import Todos from "../js/Todos";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
 import "../css/application.css";
 import { FaEye } from "react-icons/fa";
 
 function Application() {
   const user = JSON.parse(localStorage.getItem("user"));
+
   const [posts, setPosts] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [todos, setTodos] = useState([]);
@@ -31,6 +26,10 @@ function Application() {
       .then((response) => response.json())
       .then((data) => setTodos(data.slice(0, 5))); // Limiting to first 5 todos
   }, []);
+
+  if (!user) {
+    return <Navigate to="/login" replace />;
+  }
 
   return (
     <div>
