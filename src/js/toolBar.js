@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../css/toolBar.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../css/toolBar.css";
 
 function Toolbar() {
   return (
