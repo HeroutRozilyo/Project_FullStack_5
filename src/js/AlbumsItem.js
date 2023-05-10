@@ -1,25 +1,28 @@
 import React, { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
-import "../css/album.css";
+import { useParams } from "react-router-dom";
 
-function Albums() {
+function AlbumsItem() {
   const [photos, setPhotos] = useState([]);
   const [start, setStart] = useState(0);
   const [end, setEnd] = useState(10);
-
-  const albumId = JSON.parse(localStorage.getItem("idAlums"));
+  const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${albumId}`)
+    fetch(`https://jsonplaceholder.typicode.com/photos?albumId=${id}`)
       .then((response) => response.json())
       .then((data) => setPhotos(data))
       .catch((error) => console.log(error));
-  }, [albumId]);
+  }, [id]);
+
+  if (!photos) {
+    return <h1>Loading...</h1>;
+  }
 
   const handleLoadMore = () => {
     setStart(start);
     setEnd(end + 10);
   };
+
   return (
     <div className="photo-list-container">
       <div className="photo-list">
@@ -39,9 +42,8 @@ function Albums() {
           </button>
         </div>
       )}
-      <Outlet />
     </div>
   );
 }
 
-export default Albums;
+export default AlbumsItem;

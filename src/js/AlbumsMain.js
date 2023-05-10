@@ -6,7 +6,6 @@ import { Navigate, Link } from "react-router-dom";
 function Albums() {
   const [albums, setAlbums] = useState([]);
   const [selectedAlbum, setSelectedAlbum] = useState(null);
-
   const user = JSON.parse(localStorage.getItem("user"));
   const userId = user.id;
 
@@ -17,28 +16,24 @@ function Albums() {
       .catch((error) => console.log(error));
   }, [userId]);
 
-  const handleAlbumClick = (albumId) => {
-    localStorage.setItem("idAlums", albumId);
-
-    <Link to={`application/albums/:${albumId}/photos`}></Link>;
-  };
-
   return (
-    <div className="album-container">
-      <h2 className="album-title">Albums</h2>
-      <ul className="album-list">
-        {albums.map((album) => (
-          <Link
-            to={`application/albums/:${album.id}/photos`}
-            key={album.id}
-            className="album-card"
-          >
-            <div className="album-image">
-              <span className="album-title-text">{album.title}</span>
-            </div>
-          </Link>
-        ))}
-      </ul>
+    <div>
+      <div className="album-container">
+        <h2 className="album-title">Albums</h2>
+        <ul className="album-list">
+          {albums.map((album) => (
+            <Link
+              to={`application/albums/${album.id}`}
+              key={album.id}
+              className="album-card"
+            >
+              <div className="album-image">
+                <span className="album-title-text">{album.title}</span>
+              </div>
+            </Link>
+          ))}
+        </ul>
+      </div>
       <Outlet />
     </div>
   );

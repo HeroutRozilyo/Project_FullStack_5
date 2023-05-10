@@ -33,11 +33,9 @@ function App() {
           <Route path="application/info" element={<Info />} />
           <Route path="application/todos" element={<Todos />} />
           <Route path="application/posts" element={<Posts />} />
+
           <Route path="application/albums" element={<AlbumsMain />} />
-          <Route
-            path="application/albums/:albumId/photos"
-            element={<AlbumsItem />}
-          ></Route>
+          <Route path="application/albums/id" element={<h1>ddd</h1>} />
         </Route>
       </Routes>
     </div>
