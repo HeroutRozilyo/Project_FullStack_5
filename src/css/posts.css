@@ -1,55 +1,43 @@
-/* Define the background color for the entire page */
-body {
-  background-color: #f2f3f5;
-}
-
-/* Style the posts container */
 .post-container {
+  display: block;
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+  margin-bottom: 1rem;
   background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
-  padding: 20px;
-  position: relative;
-  transition: all 0.2s ease;
+  color: #333;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
 }
 
 .post-container:hover {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
 }
 
-.post-container.selected {
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+.post-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* Style the post title */
 .post-title {
-  color: #3b5998;
-  font-size: 24px;
-  margin-bottom: 10px;
+  font-size: 1.2rem;
+  margin: 0;
 }
 
-/* Style the view comments button */
 .view-comments-button {
-  background-color: #3b5998;
-  border: none;
-  border-radius: 4px;
+  background-color: #f44336;
   color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
   cursor: pointer;
-  font-size: 16px;
-  padding: 8px 12px;
-  transition: all 0.2s ease;
+  transition: all 0.2s ease-in-out;
 }
 
 .view-comments-button:hover {
-  background-color: #2d4373;
-}
-
-/* Style the post body */
-.post-body {
-  font-size: 18px;
-  line-height: 1.5;
-  margin-top: 20px;
+  background-color: #d32f2f;
 }
 
 /* Style the comments header */

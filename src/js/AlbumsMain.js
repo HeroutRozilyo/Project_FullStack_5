@@ -23,7 +23,7 @@ function Albums() {
         <ul className="album-list">
           {albums.map((album) => (
             <Link
-              to={`application/albums/${album.id}`}
+              to={`${album.id}/photos`}
               key={album.id}
               className="album-card"
             >

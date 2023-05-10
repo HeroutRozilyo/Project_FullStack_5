@@ -9,8 +9,10 @@ import Todos from "../src/js/Todos.js";
 import Layout from "./js/Layout";
 import AlbumsMain from "./js/AlbumsMain";
 import AlbumsItem from "./js/AlbumsItem";
-
 import Application from "./js/Application";
+import PostsMain from "./js/postsMain.js";
+import PostsItem from "./js/postsItems";
+
 import {
   BrowserRouter as Router,
   Route,
@@ -32,10 +34,17 @@ function App() {
           <Route path="application" element={<Application />} />
           <Route path="application/info" element={<Info />} />
           <Route path="application/todos" element={<Todos />} />
-          <Route path="application/posts" element={<Posts />} />
+          <Route path="application/posts" element={<PostsMain />} />
+          <Route
+            path="application/posts/:id/comments"
+            element={<PostsItem />}
+          />
 
           <Route path="application/albums" element={<AlbumsMain />} />
-          <Route path="application/albums/id" element={<h1>ddd</h1>} />
+          <Route
+            path="application/albums/:id/photos"
+            element={<AlbumsItem />}
+          />
         </Route>
       </Routes>
     </div>
