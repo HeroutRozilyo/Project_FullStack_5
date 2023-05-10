@@ -37,7 +37,7 @@ function Application() {
       <h1 className="header">Welcome {user.name}!</h1>
       <div className="contentAP">
         <div className="sectionAP" id="posts">
-          <Link to="/application/posts">
+          <Link to="posts">
             <h2>
               <FaEye className="section-icon" />
               Posts
@@ -50,7 +50,7 @@ function Application() {
           </ul>
         </div>
         <div className="sectionAP" id="album">
-          <Link to="/application/albums">
+          <Link to="albums">
             <h2>
               {" "}
               <FaEye className="section-icon" />
@@ -64,7 +64,7 @@ function Application() {
           </ul>
         </div>
         <div className="sectionAP" id="todos">
-          <Link to="/application/todos">
+          <Link to="todos">
             <h2>
               <FaEye className="section-icon" />
               Todos
