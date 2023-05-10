@@ -1,57 +1,62 @@
-/* Center the Todos component */
 .todos-page {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    padding: 20px;
   }
   
-  /* Style the Todos title */
   .todos-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
+    font-size: 24px;
+    color: #3b5998;
+    margin-bottom: 10px;
   }
   
-  /* Style the Sort By label */
   .todos-label {
-    font-size: 1rem;
-    margin-right: 0.5rem;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 5px;
   }
   
-  /* Style the Sort By select */
   .todos-select {
-    font-size: 1rem;
-    padding: 0.5rem;
-    border: none;
-    border-radius: 0.25rem;
-    background-color: #f2f2f2;
-    color: #333;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    color: #666;
   }
   
-  /* Style the Todos list */
   .todos-list {
-    list-style: none;
-    margin: 0;
+    list-style-type: none;
     padding: 0;
+    margin: 0;
   }
   
-  /* Style the Todos item */
   .todos-item {
     display: flex;
     align-items: center;
-    margin: 0.5rem 0;
-    padding: 0.5rem;
-    background-color: #f2f2f2;
-    border-radius: 0.25rem;
+    margin-bottom: 10px;
   }
   
-  /* Style the Todos checkbox */
   .todos-checkbox {
-    margin-right: 0.5rem;
+    margin-right: 10px;
+    /* Customize checkbox color */
+    color: #3b5998;
   }
   
-  /* Style the Todos text */
+  .todos-checkbox:checked {
+    /* Customize checked checkbox color */
+    color: #3b5998;
+  }
+  
   .todos-text {
-    flex: 1;
-    font-size: 1.2rem;
+    font-size: 16px;
+    color: #3b5998;
+  }
+  
+  
+  .todos-checkbox:checked + .todos-text {
+    text-decoration: line-through;
+    color: #3b5998;
   }
   

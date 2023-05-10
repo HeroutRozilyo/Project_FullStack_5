@@ -76,7 +76,7 @@ function Todos() {
 
   return (
     <div className="todos-page">
-      <h2 className="todos-title">Todos</h2>
+    
       <label className="todos-label" htmlFor="sort-order-select">Sort by:</label>
       <select className="todos-select" id="sort-order-select" value={sortOrder} onChange={handleSortOrderChange}>
         <option value="serial">Serial</option>
