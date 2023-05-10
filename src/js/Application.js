@@ -7,6 +7,7 @@ import Login from '../js/Login';
 import Posts from '../js/Posts';
 import Todos from '../js/Todos';
 import '../css/application.css';
+import { FaEye } from 'react-icons/fa';
 
 function Application() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -35,11 +36,12 @@ function Application() {
     
     <div>
       
-      <h1 className="header">Welcome {user.name}!</h1>
+      <h1 className="header">
+        Welcome {user.name}!</h1>
       <div className="contentAP">
         <div className="sectionAP" id='posts'>
           <Link to="/application/posts">
-            <h2>Posts</h2>
+            <h2><FaEye className="section-icon" />Posts</h2>
           </Link>
           <ul>
             {posts.map((post) => (
@@ -49,7 +51,8 @@ function Application() {
         </div>
         <div className="sectionAP" id='album'>
           <Link to="/application/albums">
-            <h2>Albums</h2>
+            <h2> <FaEye className="section-icon" />Albums</h2>
+            
           </Link>
           <ul>
             {albums.map((album) => (
@@ -59,7 +62,7 @@ function Application() {
         </div>
         <div className="sectionAP" id='todos'>
           <Link to="/application/todos">
-            <h2>Todos</h2>
+            <h2><FaEye className="section-icon" />Todos</h2>
           </Link>
           <ul>
             {todos.map((todo) => (

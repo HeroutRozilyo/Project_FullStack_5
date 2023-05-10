@@ -3,6 +3,15 @@
     justify-content: space-between;
     gap: 20px;
   }
+  .header {
+    background-color: #e8eaed;
+    color: #3b5998;
+    padding: 20px;
+    border: 1px solid #e8eaed;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 30px;
+  }
   
   .sectionAP {
     flex-basis: 30%;
@@ -15,6 +24,12 @@
   .sectionAP h2 {
     margin-bottom: 10px;
     font-size: 18px;
+    text-decoration: none; /* Remove the underline */
+    color: #3b5998;
+    border-bottom: 3px solid #3b5998; /* Add this line to create a bottom line */
+  }
+  .sectionAP h2 a {
+    text-decoration: none;
   }
   
   .sectionAP ul {
@@ -32,9 +47,7 @@
     border-bottom: none;
   }
   
-  .sectionAP li:hover {
-    background-color: #eee;
-  }
+  
   
   #album{
     background-color: #ffd3e6;
