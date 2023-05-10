@@ -18,7 +18,7 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="info"
+            to="application/info"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-info-circle"></i>
@@ -27,7 +27,7 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="todos"
+            to="application/todos"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-list"></i>
@@ -36,7 +36,7 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="posts"
+            to="application/posts"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-pencil-alt"></i>
@@ -45,7 +45,7 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="albums"
+            to="application/albums"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-images"></i>
