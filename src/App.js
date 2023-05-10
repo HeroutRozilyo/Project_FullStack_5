@@ -24,8 +24,6 @@ function App() {
 
   return (
     <div>
-      {!isLoginPage && <Toolbar />}{" "}
-      {/* Render the toolbar if it's not the login page */}
       <Routes>
         <Route path="/" element={<Main />} />
         <Route path="/login" element={<Login />} />

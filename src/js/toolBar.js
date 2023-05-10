@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../css/toolBar.css";
+import '@fortawesome/fontawesome-free/css/all.min.css';
 
 function Toolbar() {
+    
   return (
+    
     <div className="toolbar">
       <ul className="menuBar">
+      <li>
+          <Link to="/application">
+          <i className="toolbar-icon fas fa-home"></i>
+            Home
+          </Link>
+        </li>
         <li>
           <Link to="/application/info">
             <i className="toolbar-icon fas fa-info-circle"></i>
