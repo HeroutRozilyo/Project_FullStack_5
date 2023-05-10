@@ -1,47 +1,47 @@
-import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import Toolbar from '../js/toolBar.js';
-import Info from '../js/Info';
-import Album from '../js/Album';
-import Login from '../js/Login';
-import Posts from '../js/Posts';
-import Todos from '../js/Todos';
-import '../css/application.css';
-import { FaEye } from 'react-icons/fa';
+import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Toolbar from "../js/toolBar.js";
+import Info from "../js/Info";
+import Album from "../js/Album";
+import Login from "../js/Login";
+import Posts from "../js/Posts";
+import Todos from "../js/Todos";
+import "../css/application.css";
+import { FaEye } from "react-icons/fa";
 
 function Application() {
-  const user = JSON.parse(localStorage.getItem('user'));
+  const user = JSON.parse(localStorage.getItem("user"));
   const [posts, setPosts] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
     // Fetch posts from the API
-    fetch('https://jsonplaceholder.typicode.com/posts')
+    fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
       .then((data) => setPosts(data.slice(0, 5))); // Limiting to first 5 posts
 
     // Fetch albums from the API
-    fetch('https://jsonplaceholder.typicode.com/albums')
+    fetch("https://jsonplaceholder.typicode.com/albums")
       .then((response) => response.json())
       .then((data) => setAlbums(data.slice(0, 5))); // Limiting to first 5 albums
 
     // Fetch todos from the API
-    fetch('https://jsonplaceholder.typicode.com/todos')
+    fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((data) => setTodos(data.slice(0, 5))); // Limiting to first 5 todos
   }, []);
 
   return (
-    
     <div>
-      
-      <h1 className="header">
-        Welcome {user.name}!</h1>
+      <h1 className="header">Welcome {user.name}!</h1>
       <div className="contentAP">
-        <div className="sectionAP" id='posts'>
+        <div className="sectionAP" id="posts">
           <Link to="/application/posts">
-            <h2><FaEye className="section-icon" />Posts</h2>
+            <h2>
+              <FaEye className="section-icon" />
+              Posts
+            </h2>
           </Link>
           <ul>
             {posts.map((post) => (
@@ -49,10 +49,13 @@ function Application() {
             ))}
           </ul>
         </div>
-        <div className="sectionAP" id='album'>
+        <div className="sectionAP" id="album">
           <Link to="/application/albums">
-            <h2> <FaEye className="section-icon" />Albums</h2>
-            
+            <h2>
+              {" "}
+              <FaEye className="section-icon" />
+              Albums
+            </h2>
           </Link>
           <ul>
             {albums.map((album) => (
@@ -60,23 +63,24 @@ function Application() {
             ))}
           </ul>
         </div>
-        <div className="sectionAP" id='todos'>
+        <div className="sectionAP" id="todos">
           <Link to="/application/todos">
-            <h2><FaEye className="section-icon" />Todos</h2>
+            <h2>
+              <FaEye className="section-icon" />
+              Todos
+            </h2>
           </Link>
           <ul>
             {todos.map((todo) => (
               <li key={todo.id}>
                 {todo.completed ? (
                   <span className="incomplete-task">
-                  <i className="fas fa-times"></i>
-                </span>
-                
+                    <i className="fas fa-times"></i>
+                  </span>
                 ) : (
                   <span className="completed-task">
-  <i className="fas fa-check"></i>
-</span>
-
+                    <i className="fas fa-check"></i>
+                  </span>
                 )}
                 {todo.title}
               </li>
