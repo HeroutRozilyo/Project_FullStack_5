@@ -6,12 +6,19 @@ import Info from "../src/js/Info.js";
 import Album from '../src/js/Album.js';
 import Posts from '../src/js/Posts.js';
 import Todos from '../src/js/Todos.js';
+import Toolbar from '../src/js/toolBar.js';
 
 import Application from "./js/Application";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes,useLocation  } from "react-router-dom";
 
 function App() {
+  const location = useLocation();
+
+  const isLoginPage = location.pathname === '/login';
+
   return (
+    <div>
+      {!isLoginPage && <Toolbar />} {/* Render the toolbar if it's not the login page */}
     <Routes>
       <Route path="/" element={<Main />} />
       <Route path="/login" element={<Login />} />
@@ -22,6 +29,7 @@ function App() {
       <Route path="/application/albums" element={<Album />}/>
 
     </Routes>
+    </div>
   );
 }
 
