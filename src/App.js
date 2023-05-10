@@ -6,8 +6,9 @@ import Info from "../src/js/Info.js";
 import Album from "../src/js/Album.js";
 import Posts from "../src/js/Posts.js";
 import Todos from "../src/js/Todos.js";
-import Toolbar from "../src/js/toolBar.js";
 import Layout from "./js/Layout";
+import AlbumsMain from "./js/AlbumsMain";
+import AlbumsItem from "./js/AlbumsItem";
 
 import Application from "./js/Application";
 import {
@@ -32,9 +33,11 @@ function App() {
           <Route path="application/info" element={<Info />} />
           <Route path="application/todos" element={<Todos />} />
           <Route path="application/posts" element={<Posts />} />
-          <Route path="application/albums">
-            <Route index element={<Album />} />
-          </Route>
+          <Route path="application/albums" element={<AlbumsMain />} />
+          <Route
+            path="application/albums/:id/photos"
+            element={<AlbumsItem />}
+          ></Route>
         </Route>
       </Routes>
     </div>
