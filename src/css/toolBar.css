@@ -40,6 +40,7 @@
     margin-bottom: 5px;
   }
   .my-link {
-    background-color: red;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  background-image: linear-gradient(to bottom, #3b58987a, #707c89);
 }
   
