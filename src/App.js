@@ -35,7 +35,7 @@ function App() {
           <Route path="application/posts" element={<Posts />} />
           <Route path="application/albums" element={<AlbumsMain />} />
           <Route
-            path="application/albums/:id/photos"
+            path="application/albums/:albumId/photos"
             element={<AlbumsItem />}
           ></Route>
         </Route>

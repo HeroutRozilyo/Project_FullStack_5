@@ -19,7 +19,8 @@ function Albums() {
 
   const handleAlbumClick = (albumId) => {
     localStorage.setItem("idAlums", albumId);
-    <Link to="application/albums/:id/photos"></Link>;
+
+    <Link to={`application/albums/:${albumId}/photos`}></Link>;
   };
 
   return (
@@ -27,17 +28,15 @@ function Albums() {
       <h2 className="album-title">Albums</h2>
       <ul className="album-list">
         {albums.map((album) => (
-          <li key={album.id} className="album-item">
-            <div
-              className="album-card"
-              onClick={() => handleAlbumClick(album.id)}
-              aria-label={`View album ${album.title}`}
-            >
-              <div className="album-image">
-                <span className="album-title-text">{album.title}</span>
-              </div>
+          <Link
+            to={`application/albums/:${album.id}/photos`}
+            key={album.id}
+            className="album-card"
+          >
+            <div className="album-image">
+              <span className="album-title-text">{album.title}</span>
             </div>
-          </li>
+          </Link>
         ))}
       </ul>
       <Outlet />
