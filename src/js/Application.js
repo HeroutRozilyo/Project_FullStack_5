@@ -1,16 +1,22 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Link, Navigate, useNavigate } from "react-router-dom";
 import "../css/application.css";
 import { FaEye } from "react-icons/fa";
 
 function Application() {
   const user = JSON.parse(localStorage.getItem("user"));
+  const navigate = useNavigate(); // Access the navigate function
 
   const [posts, setPosts] = useState([]);
   const [albums, setAlbums] = useState([]);
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
+    if (!user) {
+      // If user is not authenticated, navigate to login page
+      navigate("/login");
+    }
+
     // Fetch posts from the API
     fetch("https://jsonplaceholder.typicode.com/posts")
       .then((response) => response.json())
@@ -25,15 +31,11 @@ function Application() {
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((data) => setTodos(data.slice(0, 5))); // Limiting to first 5 todos
-  }, []);
-
-  if (!user) {
-    return <Navigate to="/login" replace />;
-  }
+  }, [user, navigate]);
 
   return (
     <div>
-      <h1 className="header">Welcome {user.name}!</h1>
+      <h1 className="header">Welcome {user && user.name}!</h1>
       <div className="contentAP">
         <div className="sectionAP" id="posts">
           <Link to="/application/posts">
@@ -91,4 +93,4 @@ function Application() {
   );
 }
 
-export default Application;
+export default Application
