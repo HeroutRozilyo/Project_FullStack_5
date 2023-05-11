@@ -4,7 +4,7 @@ import Login from "../src/js/Login.js";
 import Main from "../src/js/main.js";
 import Info from "../src/js/Info.js";
 import Album from "../src/js/Album.js";
-import Posts from "../src/js/Posts.js";
+
 import Todos from "../src/js/Todos.js";
 import Layout from "./js/Layout";
 import AlbumsMain from "./js/AlbumsMain";
