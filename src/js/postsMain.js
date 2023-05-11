@@ -1,4 +1,3 @@
-// Posts.js
 import React, { useState, useEffect } from "react";
 import { Outlet, Link, useNavigate } from "react-router-dom";
 import "../css/posts.css"; // import the CSS file
@@ -7,6 +6,7 @@ function Posts() {
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [comments, setComments] = useState([]);
+  const [showComments, setShowComments] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -21,13 +21,15 @@ function Posts() {
   const handlePostClick = (postId) => {
     if (selectedPost === postId) {
       setSelectedPost(null);
+      setShowComments(false);
     } else {
       setSelectedPost(postId);
+      setShowComments(false);
     }
   };
 
   const handleViewCommentsClick = (postId) => {
-    navigate(`/comments/${postId}`);
+    navigate(`${postId}/comments`);
   };
 
   return (
