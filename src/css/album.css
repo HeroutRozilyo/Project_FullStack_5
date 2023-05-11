@@ -1,135 +1,81 @@
 .album-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  .album-title {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-  
-  .album-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .album-item {
-    margin-bottom: 1rem;
-    padding: 1rem;
-    background-color: #e2dfdf;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .album-item:hover {
-    transform: scale(1.05);
-  }
-  
-  .album-card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 100%;
-    height: 100px;
-    overflow: hidden;
-    border-radius: 5px;
-    
-  }
-  
-  .album-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #77a1c4;
-    opacity: 0.8;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .album-image:hover {
-    opacity: 0.9;
-  }
-  
-  .album-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .album-title-text {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    padding: 1rem;
-    width: 100%;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: #fff;
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
-    background-color: rgba(0, 0, 0, 0.5);
-  }
-  
-  .photo-list-container {
-    padding: 1rem;
-    background-color: #e2dfdf;
-   
-  }
-  
-  .photo-list-title {
-    font-size: 1.5rem;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-  
-  .photo-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    grid-gap: 1rem;
-    margin-bottom: 1rem;
-    overflow-y: auto; /* Add vertical scroll */
-    height: 200px; /* Set a height for the container */
-  }
-  
-  .photo-item {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .photo-item:hover {
-    transform: scale(1.05);
-  }
-  
-  .load-more {
-    text-align: center;
-    background-color: #e2dfdf;
-  }
-  
-  .load-more-button {
-    padding: 0.5rem 1rem;
-    background-color: #43596b;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.2s ease-in-out;
-  }
-  
-  .load-more-button:hover {
-    background-color: #111;
-  }
-  .photo-list-container {
-    
-    padding: 10px;
-    margin-top: 10px;
-    min-height: 200px; }
+  margin: 20px;
+}
+
+.album-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.album-title-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.7);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  white-space:pre-wrap; /* Prevent line breaks */
+  overflow: hidden; /* Hide overflow text */
+  text-overflow: ellipsis; /* Display ellipsis (...) for overflow */
+}
+
+
+.album-list {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 20px;
+}
+
+.album-card {
+  text-decoration: none;
+  color: inherit;
+  border-radius: 5px;
+  border-color: #3b5998;
+  overflow: hidden;
+  box-shadow: 0 2px 4px #3b5998;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.album-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.album-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+}
+
+.album-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.album-title-text {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 10px;
+  background-color: #3b5998;
+  color: #fff;
+  font-size: 16px;
+  font-weight: normal;
+  text-align: center;
+  word-break: break-word;
+  display: flex;
+  justify-content: center;
+}
+
+.album-card:hover .album-title-text {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+

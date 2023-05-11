@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import "../css/album.css";
 import { Navigate, Link } from "react-router-dom";
+import image from '../Image/galery.png'
 
 function Albums() {
   const [albums, setAlbums] = useState([]);
@@ -19,7 +20,7 @@ function Albums() {
   return (
     <div>
       <div className="album-container">
-        <h2 className="album-title">Albums</h2>
+       
         <ul className="album-list">
           {albums.map((album) => (
             <Link
@@ -28,6 +29,7 @@ function Albums() {
               className="album-card"
             >
               <div className="album-image">
+                <img src={image} alt={album.title} />
                 <span className="album-title-text">{album.title}</span>
               </div>
             </Link>
