@@ -1,18 +1,20 @@
 import React, { useState, useEffect } from 'react';
-import '../css/todos.css'
+import '../css/todos.css';
 
 function Todos() {
   const [todos, setTodos] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [sortOrder, setSortOrder] = useState('serial');
+  const [filter, setFilter] = useState('all');
+  const [showFilterOptions, setShowFilterOptions] = useState(false);
 
   useEffect(() => {
     setLoading(true);
-  
+
     async function fetchTodos() {
       let todosData;
-  
+
       try {
         const user = JSON.parse(localStorage.getItem('user'));
         const userId = user.id;
@@ -23,17 +25,21 @@ function Todos() {
       } finally {
         setLoading(false);
       }
-  
+
       if (todosData) {
         setTodos(todosData);
       }
     }
-  
+
     fetchTodos();
   }, []);
 
-  const handleSortOrderChange = event => {
+  const handleSortOrderChange = (event) => {
     setSortOrder(event.target.value);
+  };
+
+  const handleFilterChange = (event) => {
+    setFilter(event.target.value);
   };
 
   const updateTodo = async (todo) => {
@@ -44,16 +50,16 @@ function Todos() {
           'Content-Type': 'application/json; charset=UTF-8',
         },
         body: JSON.stringify({
-          completed: !todo.completed
-        })
+          completed: !todo.completed,
+        }),
       });
       const data = await response.json();
-      setTodos(todos.map(t => t.id === data.id ? data : t));
+      setTodos(todos.map((t) => (t.id === data.id ? data : t)));
     } catch (error) {
       setError(error);
     }
   };
-  
+
   const sortedTodos = [...todos].sort((a, b) => {
     if (sortOrder === 'serial') {
       return a.id - b.id;
@@ -66,6 +72,14 @@ function Todos() {
     }
   });
 
+  let filteredTodos = sortedTodos;
+
+  if (filter === 'completed') {
+    filteredTodos = sortedTodos.filter((todo) => todo.completed);
+  } else if (filter === 'incomplete') {
+    filteredTodos = sortedTodos.filter((todo) => !todo.completed);
+  }
+
   if (loading) {
     return <p>Loading...</p>;
   }
@@ -76,16 +90,59 @@ function Todos() {
 
   return (
     <div className="todos-page">
-    
-      <label className="todos-label" htmlFor="sort-order-select">Sort by:</label>
-      <select className="todos-select" id="sort-order-select" value={sortOrder} onChange={handleSortOrderChange}>
-        <option value="serial">Serial</option>
-        <option value="execution">Execution</option>
-        <option value="alphabetical">Alphabetical</option>
-        <option value="random">Random</option>
-      </select>
+      <div className="todos-filter">
+        <button className="todos-filter-button" onClick={() => setShowFilterOptions(!showFilterOptions)}>
+          <i className="fas fa-filter"></i>
+          Filter
+        </button>
+        {showFilterOptions && (
+          <div className="todos-filter-options">
+            <label>
+              <input
+                type="radio"
+                name="filter"
+                value="all"
+                checked={filter === 'all'}
+                onChange={handleFilterChange}
+              />
+              All
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="filter"
+                value="completed"
+                checked={filter === 'completed'}
+                onChange={handleFilterChange}
+              />
+              Completed
+            </label>
+            <label>
+            <input
+              type="radio"
+              name="filter"
+              value="incomplete"
+              checked={filter === 'incomplete'}
+              onChange={handleFilterChange}
+            />
+            Incomplete
+          </label>
+        </div>
+        )}
+      </div>
+      <div className="todos-sort">
+        <label className="todos-label" htmlFor="sort-order-select">
+          Sort by:
+        </label>
+        <select className="todos-select" id="sort-order-select" value={sortOrder} onChange={handleSortOrderChange}>
+          <option value="serial">Serial</option>
+          <option value="execution">Execution</option>
+          <option value="alphabetical">Alphabetical</option>
+          <option value="random">Random</option>
+        </select>
+      </div>
       <ul className="todos-list">
-        {sortedTodos.map(todo => (
+        {filteredTodos.map((todo) => (
           <li className="todos-item" key={todo.id}>
             <input className="todos-checkbox" type="checkbox" checked={todo.completed} onChange={() => updateTodo(todo)} />
             <span className="todos-text">{todo.title}</span>
