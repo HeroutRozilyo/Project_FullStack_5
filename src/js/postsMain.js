@@ -1,13 +1,13 @@
+// Posts.js
 import React, { useState, useEffect } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet, Link, useNavigate } from "react-router-dom";
 import "../css/posts.css"; // import the CSS file
 
 function Posts() {
   const [posts, setPosts] = useState([]);
   const [selectedPost, setSelectedPost] = useState(null);
   const [comments, setComments] = useState([]);
-  const [showComments, setShowComments] = useState(false);
-  const [showPostDetails, setShowPostDetails] = useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
@@ -18,21 +18,44 @@ function Posts() {
       .catch((error) => console.log(error));
   }, []);
 
+  const handlePostClick = (postId) => {
+    if (selectedPost === postId) {
+      setSelectedPost(null);
+    } else {
+      setSelectedPost(postId);
+    }
+  };
+
+  const handleViewCommentsClick = (postId) => {
+    navigate(`/comments/${postId}`);
+  };
+
   return (
     <div>
-      <h2>Posts</h2>
       <ul>
         {posts.map((post) => (
-          <Link
-            to={`${post.id}/comments`}
+          <div
             key={post.id}
-            className={`post-container`}
+            className={`post-container ${
+              selectedPost === post.id ? "post-container-active" : ""
+            }`}
+            onClick={() => handlePostClick(post.id)}
           >
             <div className="post-header">
               <h2 className="post-title">{post.title}</h2>
-              <button className="view-comments-button">View Comments</button>
+              {selectedPost === post.id && (
+                <>
+                  <p className="caption">{post.body}</p>
+                  <button
+                    className="view-comments-button"
+                    onClick={() => handleViewCommentsClick(post.id)}
+                  >
+                    View Comments
+                  </button>
+                </>
+              )}
             </div>
-          </Link>
+          </div>
         ))}
       </ul>
       <Outlet />

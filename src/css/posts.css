@@ -1,66 +1,112 @@
+/* posts.css */
+
 .post-container {
   display: block;
-  padding: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 20px;
+  border-radius: 5px;
   background-color: #fff;
-  color: #333;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .post-container:hover {
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.post-container-active {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(59, 89, 152, 0.5);
+}
+
+.post-container-active::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(59, 89, 152, 0.5);
+  pointer-events: none;
 }
 
 .post-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  padding: 20px;
+  border-bottom: 1px solid #ddd;
 }
 
 .post-title {
-  font-size: 1.2rem;
-  margin: 0;
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 600;
+  color: #3b5998;
+}
+
+.post-body {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #333;
 }
 
 .view-comments-button {
-  background-color: #f44336;
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
   color: #fff;
+  background-color: #3b5998;
   border: none;
-  border-radius: 0.25rem;
-  padding: 0.5rem 1rem;
-  font-size: 1rem;
+  border-radius: 20px;
   cursor: pointer;
-  transition: all 0.2s ease-in-out;
+  transition: background-color 0.3s ease;
 }
 
 .view-comments-button:hover {
-  background-color: #d32f2f;
+  background-color: #2d4373;
 }
 
-/* Style the comments header */
-.comments-header {
+/* Beautiful and Facebook-inspired Design */
+.post-container {
+  border: 1px solid #ddd;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.post-container:hover {
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.post-container-active {
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 20px rgba(59, 89, 152, 0.5);
+}
+
+.post-container-active::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(59, 89, 152, 0.5);
+  pointer-events: none;
+}
+
+.post-title {
   color: #3b5998;
-  font-size: 20px;
-  margin-top: 20px;
 }
 
-/* Style the comment container */
-.comment-container {
-  margin-top: 20px;
+.post-body {
+  color: #333;
 }
 
-/* Style the comment name */
-.comment-name {
-  color: #3b5998;
-  font-size: 18px;
-  margin-bottom: 10px;
+.view-comments-button {
+  background-color: #3b5998;
 }
 
-/* Style the comment body */
-.comment-body {
-  font-size: 16px;
-  line-height: 1.5;
+.view-comments-button:hover {
+  background-color: #2d4373;
 }
