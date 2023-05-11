@@ -1,7 +1,14 @@
 /* todos.css */
 
 /* General Styles */
-.todos-page {
+.todos-toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .todos-page {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -9,7 +16,9 @@
   }
   
   .todos-filter {
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    margin-right: 10px; /* Add margin to create space between filter and sort */
   }
   
   .todos-filter-button {
@@ -37,7 +46,8 @@
   }
   
   .todos-sort {
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
   }
   
   .todos-label {

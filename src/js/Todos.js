@@ -90,67 +90,73 @@ function Todos() {
 
   return (
     <div className="todos-page">
-      <div className="todos-filter">
-        <button className="todos-filter-button" onClick={() => setShowFilterOptions(!showFilterOptions)}>
-          <i className="fas fa-filter"></i>
-          Filter
-        </button>
-        {showFilterOptions && (
-          <div className="todos-filter-options">
-            <label>
-              <input
-                type="radio"
-                name="filter"
-                value="all"
-                checked={filter === 'all'}
-                onChange={handleFilterChange}
-              />
-              All
-            </label>
-            <label>
-              <input
-                type="radio"
-                name="filter"
-                value="completed"
-                checked={filter === 'completed'}
-                onChange={handleFilterChange}
-              />
-              Completed
-            </label>
-            <label>
-            <input
-              type="radio"
-              name="filter"
-              value="incomplete"
-              checked={filter === 'incomplete'}
-              onChange={handleFilterChange}
-            />
-            Incomplete
-          </label>
+      <div className="todos-toolbar">
+        <div className="todos-filter">
+          <button className="todos-filter-button" onClick={() => setShowFilterOptions(!showFilterOptions)}>
+            <i className="fas fa-filter"></i>
+            Filter
+          </button>
+          {showFilterOptions && (
+            <div className="todos-filter-options">
+              <label>
+                <input
+                  type="radio"
+                  name="filter"
+                  value="all"
+                  checked={filter === 'all'}
+                  onChange={handleFilterChange}
+                />
+                All
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="filter"
+                  value="completed"
+                  checked={filter === 'completed'}
+                  onChange={handleFilterChange}
+                />
+                Completed
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="filter"
+                  value="incomplete"
+                  checked={filter === 'incomplete'}
+                  onChange={handleFilterChange}
+                />
+                Incomplete
+              </label>
+            </div>
+          )}
         </div>
-        )}
-      </div>
-      <div className="todos-sort">
-        <label className="todos-label" htmlFor="sort-order-select">
-          Sort by:
-        </label>
-        <select className="todos-select" id="sort-order-select" value={sortOrder} onChange={handleSortOrderChange}>
-          <option value="serial">Serial</option>
-          <option value="execution">Execution</option>
-          <option value="alphabetical">Alphabetical</option>
-          <option value="random">Random</option>
-        </select>
+        <div className="todos-sort">
+          <label className="todos-label" htmlFor="sort-order-select">
+            Sort by:
+          </label>
+          <select className="todos-select" id="sort-order-select" value={sortOrder} onChange={handleSortOrderChange}>
+            <option value="serial">Serial</option>
+            <option value="execution">Execution</option>
+            <option value="alphabetical">Alphabetical</option>
+            <option value="random">Random</option>
+          </select>
+        </div>
       </div>
       <ul className="todos-list">
         {filteredTodos.map((todo) => (
           <li className="todos-item" key={todo.id}>
-            <input className="todos-checkbox" type="checkbox" checked={todo.completed} onChange={() => updateTodo(todo)} />
+            <input
+              className="todos-checkbox"
+              type="checkbox"
+              checked={todo.completed}
+              onChange={() => updateTodo(todo)}
+            />
             <span className="todos-text">{todo.title}</span>
           </li>
         ))}
       </ul>
     </div>
   );
-}
-
+        }  
 export default Todos;
