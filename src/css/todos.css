@@ -50,9 +50,12 @@
     align-items: center;
   }
   
-  .todos-label {
-    margin-right: 5px;
-  }
+  
+    .todos-label {
+        margin-right: 5px;
+        color: #3b5998!important;
+      }
+  
   
   .todos-select {
     padding: 5px 10px;
@@ -130,4 +133,37 @@
     text-decoration: line-through;
     color: #888;
   }
+  
+  /* Updated Filter Options Styling */
+  .todos-filter-options{
+    border: none;
+  }
+  
+  .todos-filter-options label {
+    display: inline-block;
+    margin-right: 10px;
+    padding: 8px 12px;
+   
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 14px;
+    font-weight: bold;
+    color: #65676b;
+  }
+  
+  .todos-filter-options label:hover {
+    background-color: #d8dbe0;
+  }
+  
+  .todos-filter-options label input[type="radio"]:checked {
+    background-color: #4267B2;
+    color: white;
+  }
+  
+  .todos-filter-options label input[type="radio"]:checked:hover {
+    background-color: #3b5998;
+  }
+  
+  
   
