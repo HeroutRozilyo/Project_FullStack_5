@@ -9,7 +9,8 @@ function Toolbar() {
       <ul className="menuBar">
         <li>
           <NavLink
-            to="application"
+            to="/application"
+            exact
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-home"></i>
@@ -18,7 +19,8 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="application/info"
+            to="/application/info"
+            exact
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-info-circle"></i>
@@ -27,7 +29,8 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="application/todos"
+            to="/application/todos"
+            exact
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-list"></i>
@@ -36,7 +39,8 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="application/posts"
+            to="/application/posts"
+            exact
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-pencil-alt"></i>
@@ -45,7 +49,8 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="application/albums"
+            to="/application/albums"
+            exact
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-images"></i>
@@ -54,9 +59,10 @@ function Toolbar() {
         </li>
         <li>
           <NavLink
-            to="login"
-            onClick={() => localStorage.removeItem("user")}
+            to="/login"
+            exact
             className={({ isActive }) => (isActive ? "my-link" : null)}
+            onClick={() => localStorage.removeItem("user")}
           >
             <i className="toolbar-icon fas fa-sign-out-alt"></i>
             Logout

@@ -1,10 +1,8 @@
-import logo from "./logo.svg";
+
 import "./App.css";
 import Login from "../src/js/Login.js";
 import Main from "../src/js/main.js";
 import Info from "../src/js/Info.js";
-import Album from "../src/js/Album.js";
-
 import Todos from "../src/js/Todos.js";
 import Layout from "./js/Layout";
 import AlbumsMain from "./js/AlbumsMain";
@@ -17,14 +15,10 @@ import {
   BrowserRouter as Router,
   Route,
   Routes,
-  useLocation,
 } from "react-router-dom";
 
 function App() {
-  const location = useLocation();
-
-  const isLoginPage = location.pathname === "/login";
-
+ 
   return (
     <div>
       <Routes>

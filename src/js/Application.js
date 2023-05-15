@@ -17,21 +17,33 @@ function Application() {
       navigate("/login");
     }
 
-    // Fetch posts from the API
-    fetch("https://jsonplaceholder.typicode.com/posts")
-      .then((response) => response.json())
-      .then((data) => setPosts(data.slice(0, 5))); // Limiting to first 5 posts
+     // Fetch posts from the API
+  fetch("https://jsonplaceholder.typicode.com/posts")
+  .then((response) => response.json())
+  .then((data) => setPosts(data.slice(0, 5))) // Limiting to first 5 posts
+  .catch((error) => {
+    console.log("Error occurred while fetching posts:", error);
+    // Additional error handling if needed
+  });
 
-    // Fetch albums from the API
-    fetch("https://jsonplaceholder.typicode.com/albums")
-      .then((response) => response.json())
-      .then((data) => setAlbums(data.slice(0, 5))); // Limiting to first 5 albums
+// Fetch albums from the API
+fetch("https://jsonplaceholder.typicode.com/albums")
+  .then((response) => response.json())
+  .then((data) => setAlbums(data.slice(0, 5))) // Limiting to first 5 albums
+  .catch((error) => {
+    console.log("Error occurred while fetching albums:", error);
+    // Additional error handling if needed
+  });
 
-    // Fetch todos from the API
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((data) => setTodos(data.slice(0, 5))); // Limiting to first 5 todos
-  }, [user, navigate]);
+// Fetch todos from the API
+fetch("https://jsonplaceholder.typicode.com/todos")
+  .then((response) => response.json())
+  .then((data) => setTodos(data.slice(0, 5))) // Limiting to first 5 todos
+  .catch((error) => {
+    console.log("Error occurred while fetching todos:", error);
+    // Additional error handling if needed
+  });
+}, [user, navigate]);
 
   return (
     <div>

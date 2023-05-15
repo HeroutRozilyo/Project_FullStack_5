@@ -11,11 +11,15 @@ function Albums() {
   const userId = user.id;
 
   useEffect(() => {
-    fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
-      .then((response) => response.json())
-      .then((data) => setAlbums(data))
-      .catch((error) => console.log(error));
+    try {
+      fetch(`https://jsonplaceholder.typicode.com/albums?userId=${userId}`)
+        .then((response) => response.json())
+        .then((data) => setAlbums(data));
+    } catch (error) {
+      console.log(error);
+    }
   }, [userId]);
+  
 
   return (
     <div>
