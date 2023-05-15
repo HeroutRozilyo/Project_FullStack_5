@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+
 import '../css/info.css'
 import profilePicture from '../Image/profileImage.png';
 function Info() {
