@@ -12,38 +12,37 @@ function Application() {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    if (!user) {
-      // If user is not authenticated, navigate to login page
-      navigate("/login");
-    }
-
-     // Fetch posts from the API
-  fetch("https://jsonplaceholder.typicode.com/posts")
-  .then((response) => response.json())
-  .then((data) => setPosts(data.slice(0, 5))) // Limiting to first 5 posts
-  .catch((error) => {
-    console.log("Error occurred while fetching posts:", error);
-    // Additional error handling if needed
-  });
-
-// Fetch albums from the API
-fetch("https://jsonplaceholder.typicode.com/albums")
-  .then((response) => response.json())
-  .then((data) => setAlbums(data.slice(0, 5))) // Limiting to first 5 albums
-  .catch((error) => {
-    console.log("Error occurred while fetching albums:", error);
-    // Additional error handling if needed
-  });
-
-// Fetch todos from the API
-fetch("https://jsonplaceholder.typicode.com/todos")
-  .then((response) => response.json())
-  .then((data) => setTodos(data.slice(0, 5))) // Limiting to first 5 todos
-  .catch((error) => {
-    console.log("Error occurred while fetching todos:", error);
-    // Additional error handling if needed
-  });
-}, [user, navigate]);
+    const fetchData = async () => {
+      try {
+        if (!user) {
+          // If user is not authenticated, navigate to login page
+          navigate("/login");
+          return;
+        }
+  
+        // Fetch posts from the API
+        const postsResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/posts`);
+        const postsData = await postsResponse.json();
+        setPosts(postsData.slice(0, 5));
+  
+        // Fetch albums from the API
+        const albumsResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/albums`);
+        const albumsData = await albumsResponse.json();
+        setAlbums(albumsData.slice(0, 5));
+  
+        // Fetch todos from the API
+        const todosResponse = await fetch(`https://jsonplaceholder.typicode.com/users/${user.id}/todos`);
+        const todosData = await todosResponse.json();
+        setTodos(todosData.slice(0, 5));
+      } catch (error) {
+        console.log("Error occurred while fetching data:", error);
+        // Additional error handling if needed
+      }
+    };
+  
+    fetchData();
+  }, []);
+  
 
   return (
     <div>

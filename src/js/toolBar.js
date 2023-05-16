@@ -10,7 +10,7 @@ function Toolbar() {
         <li>
           <NavLink
             to="/application"
-            exact
+            exact="true"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-home"></i>
@@ -20,7 +20,7 @@ function Toolbar() {
         <li>
           <NavLink
             to="/application/info"
-            exact
+            exact="true"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-info-circle"></i>
@@ -30,7 +30,7 @@ function Toolbar() {
         <li>
           <NavLink
             to="/application/todos"
-            exact
+            exact="true"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-list"></i>
@@ -40,7 +40,7 @@ function Toolbar() {
         <li>
           <NavLink
             to="/application/posts"
-            exact
+            exact="true"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-pencil-alt"></i>
@@ -50,7 +50,7 @@ function Toolbar() {
         <li>
           <NavLink
             to="/application/albums"
-            exact
+            exact="true"
             className={({ isActive }) => (isActive ? "my-link" : null)}
           >
             <i className="toolbar-icon fas fa-images"></i>
@@ -60,7 +60,7 @@ function Toolbar() {
         <li>
           <NavLink
             to="/login"
-            exact
+            exact="true"
             className={({ isActive }) => (isActive ? "my-link" : null)}
             onClick={() => localStorage.removeItem("user")}
           >

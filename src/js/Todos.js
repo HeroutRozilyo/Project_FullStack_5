@@ -11,26 +11,23 @@ function Todos() {
 
   useEffect(() => {
     setLoading(true);
-
+  
     async function fetchTodos() {
       let todosData;
-
+  
       try {
         const user = JSON.parse(localStorage.getItem('user'));
         const userId = user.id;
         const response = await fetch(`https://jsonplaceholder.typicode.com/users/${userId}/todos`);
         todosData = await response.json();
+        setTodos(todosData);
       } catch (error) {
         setError(error);
       } finally {
         setLoading(false);
       }
-
-      if (todosData) {
-        setTodos(todosData);
-      }
     }
-
+  
     fetchTodos();
   }, []);
 
