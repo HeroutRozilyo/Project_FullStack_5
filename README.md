@@ -1,7 +1,7 @@
 **Project 5, FullStack: Simple Facebook React Application**
 <img width="960" alt="image" src="https://github.com/HeroutRozilyo/fullstack5/assets/73179974/f976c20b-ccb4-46ad-b1ec-70c8859e2ef5">
 To-Dos:
-![image](https://github.com/HeroutRozilyo/fullstack5/assets/73179974/4ec02b55-061f-491d-be2b-40d2907679c3)
+
 Posts:
 <img width="947" alt="image" src="https://github.com/HeroutRozilyo/fullstack5/assets/73179974/86434566-fa4a-47e5-b2bd-ee1bde1c7990">
 Comments:
